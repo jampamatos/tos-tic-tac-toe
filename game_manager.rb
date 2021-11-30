@@ -14,9 +14,9 @@ class GameManager
     puts "Player #{n}, please type in your name:"
     instance_variable_set("@player#{n}_name", gets)
     if !(instance_variable_get("@player#{n}_name").length > 2)
-      puts "Your name must be at least 2 characters long."
+      puts 'Your name must be at least 2 characters long.'
       player_name(n)
-    end    
+    end
   end
 
   def player_symbol(n)
@@ -24,11 +24,8 @@ class GameManager
     puts "Hello #{name.delete("\n")}, please type a character for your symbol:"
     instance_variable_set("@player#{n}_symbol", gets)
     if !(instance_variable_get("@player#{n}_symbol").length == 2)
-      puts "Your symbol must be 1 character long."
+      puts 'Your symbol must be 1 character long.'
       player_symbol(n)
     end
-  end  
+  end
 end
-
-
-

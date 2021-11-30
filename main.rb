@@ -14,13 +14,12 @@ p2_n = game_manager.player2_name.delete("\n")
 game_manager.player_symbol(2)
 p2_s = game_manager.player2_symbol.delete("\n")
 
-system "clear"
-
+system 'clear'
 
 board.render
 board.make_play(p1_n, 1, p1_s)
 board.render
-#board.make_play('1', 2, 'X')
+board.make_play(p2_n, 1, p2_s)
 #board.render
 #board.make_play('1', 3, 'X')
 #board.render
