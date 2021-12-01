@@ -51,19 +51,19 @@ def start(game_manager, p1_n, p1_s, p2_n, p2_s)
       game_manager.update_points(2)
       puts "YOU WIN, #{p2_n.upcase}! You now have #{game_manager.player2_score} points!"
       restart(game_manager, p1_n, p1_s, p2_n, p2_s)
-      break 
+      break
     end
   end
 end
 
 def restart(game_manager, p1_n, p1_s, p2_n, p2_s)
-  puts "Do you want to start again? (Y/N)"
+  puts 'Do you want to start again? (Y/N)'
   ans = gets.delete("\n").upcase
   if ans == 'Y'
     system 'clear'
     start(game_manager, p1_n, p1_s, p2_n, p2_s)
   elsif ans == 'N'
-    puts "Thanks for playing!"
+    puts 'Thanks for playing!'
   else
     puts "Please select 'Y' or 'N'"
     restart(game_manager, p1_n, p1_s, p2_n, p2_s)
@@ -77,5 +77,3 @@ def draw(game_manager, p1_n, p1_s, p2_n, p2_s)
 end
 
 start(game_manager, p1_n, p1_s, p2_n, p2_s)
-
-
