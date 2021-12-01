@@ -7,6 +7,11 @@ def show_score(p1, p2, game_manager)
   puts "{#{p1}: #{game_manager.player1_score} points, #{p2}: #{game_manager.player2_score} points}"
 end
 
+puts game_manager.render_logo
+puts ''
+puts 'WELCOME TO JIP-JAP-JOE'
+puts ''
+
 game_manager.player_name(1)
 p1_n = game_manager.player1_name.delete("\n")
 game_manager.player_symbol(1)

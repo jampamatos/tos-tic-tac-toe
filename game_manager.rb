@@ -34,7 +34,7 @@ class GameManager
 
   def player_symbol(n)
     name = instance_variable_get("@player#{n}_name")
-    puts "Hello #{name.delete("\n")}, please type a character for your symbol:"
+    puts "Hello #{name.delete("\n")}, please select 'X' or 'O' or type another character for your symbol:"
     instance_variable_set("@player#{n}_symbol", gets.upcase)
     if !(instance_variable_get("@player#{n}_symbol").length == 2) || instance_variable_get("@player#{n}_symbol") =~ /\d/
       puts 'Your symbol must be 1 character long, and no numbers.'
@@ -44,5 +44,11 @@ class GameManager
 
   def update_points(n)
     n == 1 ? @player1_score += 1 : @player2_score += 1
+  end
+
+  def render_logo
+    File.readlines('logo.txt') do |line|
+      puts line
+    end
   end
 end
