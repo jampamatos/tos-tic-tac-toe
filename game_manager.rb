@@ -1,5 +1,5 @@
 class GameManager
-  attr_accessor :player1_name, :player1_symbol, :player1_score, :player2_name, :player2_symbol, :player2_score
+  attr_accessor :player1_name, :player1_symbol, :player1_score, :player2_name, :player2_symbol, :player2_score, :board
 
   def initialize
     @player1_name = ''
@@ -8,6 +8,19 @@ class GameManager
     @player2_name = ''
     @player2_symbol = ''
     @player2_score = 0
+    @board = Board.new
+  end
+
+  def render
+    board.render
+  end
+
+  def game_start
+    board.game_start
+  end
+
+  def make_play(p, n, s, a)
+    board.make_play(p, n, s, a)
   end
 
   def player_name(n)

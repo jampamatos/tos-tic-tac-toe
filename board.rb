@@ -34,7 +34,7 @@ class Board
       player_array == 1 ? player1 << n - 1 : player2 << n - 1
     end
     @@VICTORY.each do |combo|
-      self.game_over = true if combo == player1
+      self.game_over = true if combo.sort == player1.sort || combo.sort == player2.sort
     end
   end
 
