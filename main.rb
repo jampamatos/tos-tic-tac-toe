@@ -26,10 +26,6 @@ def start(game_manager, p1_n, p1_s, p2_n, p2_s)
   game_manager.render
 
   loop do
-    if game_manager.board.selected.length >=9
-      draw(game_manager, p1_n, p1_s, p2_n, p2_s)
-      break
-    end
     puts "#{p1_n}, please select a number:"
     n1 = gets.delete("\n").to_i
     game_manager.make_play(p1_n, n1, p1_s, 1)
@@ -41,11 +37,11 @@ def start(game_manager, p1_n, p1_s, p2_n, p2_s)
       restart(game_manager, p1_n, p1_s, p2_n, p2_s)
       break
     end
-
-    if game_manager.board.selected.length >=9
+    if game_manager.board.selected.length >= 9
       draw(game_manager, p1_n, p1_s, p2_n, p2_s)
       break
     end
+
     puts "#{p2_n}, please select a number:"
     n2 = gets.delete("\n").to_i
     game_manager.make_play(p2_n, n2, p2_s, 2)

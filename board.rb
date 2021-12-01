@@ -1,10 +1,11 @@
 class Board
-  attr_accessor :cell, :game_over, :player1, :player2, :selected
+  attr_accessor :cell, :game_over, :draw, :player1, :player2, :selected
 
   @@VICTORY = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
   def initialize
     @cell = (1..9).to_a
     @game_over = false
+    @draw = false
     @player1 = []
     @player2 = []
     @selected = []
@@ -34,11 +35,9 @@ class Board
       print_play(n, symbol)
       selected << n
       player_array == 1 ? player1 << n - 1 : player2 << n - 1
-      player1.sort
-      player2.sort
     end
     @@VICTORY.each do |combo|
-      self.game_over = true if combo.sort == player1.sort || combo.sort == player2.sort
+      self.game_over = true if (combo & player1).size == combo.size || (combo & player2).size == combo.size
     end
   end
 
