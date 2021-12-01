@@ -41,4 +41,8 @@ class GameManager
       player_symbol(n)
     end
   end
+
+  def update_points(n)
+    n == 1 ? @player1_score += 1 : @player2_score += 1
+  end
 end
