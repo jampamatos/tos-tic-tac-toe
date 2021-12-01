@@ -36,8 +36,8 @@ class GameManager
     name = instance_variable_get("@player#{n}_name")
     puts "Hello #{name.delete("\n")}, please type a character for your symbol:"
     instance_variable_set("@player#{n}_symbol", gets.upcase)
-    if !(instance_variable_get("@player#{n}_symbol").length == 2)
-      puts 'Your symbol must be 1 character long.'
+    if !(instance_variable_get("@player#{n}_symbol").length == 2) || instance_variable_get("@player#{n}_symbol") =~ /\d/
+      puts 'Your symbol must be 1 character long, and no numbers.'
       player_symbol(n)
     end
   end
