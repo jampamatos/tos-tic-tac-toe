@@ -1,5 +1,5 @@
-require_relative 'game_manager.rb'
-require_relative 'board.rb'
+require_relative 'game_manager'
+require_relative 'board'
 
 game_manager = GameManager.new
 board = Board.new
@@ -25,17 +25,10 @@ loop do
   board.make_play(p1_n, n1, p1_s, 1)
   board.render
   break if board.game_over == true
+
   puts "#{p2_n}, please select a number:"
   n2 = gets.delete("\n").to_i
   board.make_play(p2_n, n2, p2_s, 2)
   board.render
   break if board.game_over == true
 end
-
-
-#board.make_play(p1_n, 1, p1_s)
-#board.render
-#board.make_play(p2_n, 1, p2_s)
-#board.render
-#board.make_play('1', 3, 'X')
-#board.render

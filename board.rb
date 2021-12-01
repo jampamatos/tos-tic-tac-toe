@@ -23,7 +23,7 @@ class Board
     cell[n-1] = symbol
   end
 
-  def make_play(player, n, symbol, playerArray)
+  def make_play(player, n, symbol, player_array)
     if selected.include?(n)
       puts 'This number was already selected. Please chose another one.'
     else
@@ -31,13 +31,13 @@ class Board
       system 'clear'
       print_play(n, symbol)
       selected << n
-      playerArray == 1 ? player1 << n - 1 : player2 << n - 1
+      player_array == 1 ? player1 << n - 1 : player2 << n - 1
     end
     @@VICTORY.each do |combo|
       self.game_over = true if combo == player1
     end
   end
-  
+
   def game_start
     @game_over = false
     @player1 = []
