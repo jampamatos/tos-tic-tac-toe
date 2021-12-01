@@ -22,7 +22,7 @@ class GameManager
   def player_symbol(n)
     name = instance_variable_get("@player#{n}_name")
     puts "Hello #{name.delete("\n")}, please type a character for your symbol:"
-    instance_variable_set("@player#{n}_symbol", gets)
+    instance_variable_set("@player#{n}_symbol", gets.upcase)
     if !(instance_variable_get("@player#{n}_symbol").length == 2)
       puts 'Your symbol must be 1 character long.'
       player_symbol(n)

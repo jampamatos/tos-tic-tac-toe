@@ -1,5 +1,5 @@
 class Board
-  attr_accessor :cell, :game_over, :player1, :player2
+  attr_accessor :cell, :game_over, :player1, :player2, :selected
 
   @@VICTORY = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
   def initialize
@@ -7,6 +7,7 @@ class Board
     @game_over = false
     @player1 = []
     @player2 = []
+    @selected = []
   end
 
   def render
@@ -23,9 +24,14 @@ class Board
   end
 
   def make_play(player, n, symbol)
-    puts "#{player} chose number #{n}."
-    print_play(n, symbol)
-    player1 << n - 1
+    if selected.include?(n)
+      puts "This number was already selected. Please chose another one."
+    else
+      puts "#{player} chose number #{n}."
+      print_play(n, symbol)
+      player1 << n - 1
+      selected << n
+    end
     @@VICTORY.each do |combo|
       self.game_over = true if combo == player1
     end
